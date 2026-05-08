@@ -100,7 +100,7 @@ function loadMapScript() {
     script.crossOrigin = "anonymous";
     script.onload = () => {
       resolve(null);
-      script.remove(); // Clean up immediately
+    //  script.remove(); // Clean up immediately
     };
     script.onerror = () => {
       console.error("Failed to load Google Maps script");
@@ -149,7 +149,14 @@ export function MapView({
     init();
   }, [init]);
 
-  return (
+ /* return (
     <div ref={mapContainer} className={cn("w-full h-[500px]", className)} />
-  );
+  ); */
+  return (
+  <div 
+    ref={mapContainer} 
+    className={cn("w-full h-full", className)} 
+    style={{ minHeight: '400px' }} // Garanta que tenha altura para aparecer
+  />
+);
 }
